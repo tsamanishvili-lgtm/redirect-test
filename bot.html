@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect to BuroBot</title>
+
+  <!-- Яндекс.Метрика -->
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+    k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(103927132, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/103927132" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
+
+  <script>
+    // Достаём параметры из URL
+    const params = new URLSearchParams(window.location.search);
+    const startParam = params.get("start");
+
+    // Базовый адрес Бюробота
+    let redirectUrl = "https://t.me/bureausuchkov_bot";
+
+    // Если есть параметр start — добавляем его
+    if (startParam) {
+      redirectUrl += "?start=" + encodeURIComponent(startParam);
+    }
+
+    // Делаем редирект через 2 секунды (чтобы Метрика успела сработать)
+    setTimeout(() => {
+      window.location.href = redirectUrl;
+    }, 2000);
+  </script>
+</head>
+<body>
+  <p>Перенаправляем вас в Бюробот…</p>
+</body>
+</html>
